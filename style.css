@@ -1,46 +1,192 @@
-body {
-    background-color: cadetblue;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding-left: 0%;
-    text-align: center;
+/* --- Variables de couleurs (Thème Vif / Gaming) --- */
+:root {
+    --bg-color: #1a1c23;     /* Fond sombre */
+    --card-bg: #242836;      /* Couleur des cartes */
+    --text-main: #f3f4f6;    /* Texte principal */
+    --text-accent: #ff4655;  /* Rouge vif Valorant */
 }
+
+/* --- Base de la page --- */
+body {
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* --- Structure globale --- */
+header, main, footer {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
 header {
     text-align: center;
-    border-radius: 50px;
-    background-color: azure;
 }
-main {
-    border-radius: 50px;
-    background-color: azure;
-}
-footer {
-    
-    border-radius: 50px;
-    background-color: azure;
-}
+
 header h1 {
-    color: darkblue;
+    color: var(--text-accent);
+    margin: 0;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
 }
-img.v {
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+/* --- Boutons et Navigation --- */
+.btn-retour, .btn-link {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 10px 5px;
     border-radius: 30px;
-    border: solid transparent;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
-img.b {
-    border-radius: 30px;
-    border: solid transparent;
+
+.btn-retour {
+    background-color: transparent;
+    color: var(--text-accent);
+    border: 2px solid var(--text-accent);
 }
+
+.btn-retour:hover {
+    background-color: var(--text-accent);
+    color: var(--bg-color);
+    transform: translateX(-3px);
+}
+
+.menu-projets {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.btn-link {
+    background-color: #374151;
+    color: white;
+}
+
+.btn-link:hover {
+    background-color: var(--text-accent);
+    transform: translateY(-2px);
+}
+
+/* --- Images générales --- */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 70, 85, 0.2);
+}
+
 img.fuji {
-    border-radius: 30px;
-    border: solid transparent;
-    scale: calc(0.91);
+    max-width: 80%;
+    margin: 0 auto;
+    display: block;
 }
-img.t {
-    border-radius: 30px;
-    border: solid transparent;
-    padding-top: 150px;
-    scale: calc(1.);
+
+/* --- Grille et Cartes d'Objectifs --- */
+.objectifs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
 }
-body.p {
-    padding-top: 0px;
+
+.objectif-card {
+    background-color: #2e3446;
+    border-radius: 20px;
+    padding: 25px;
+    width: 280px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.objectif-card:hover {
+    transform: translateY(-5px);
+}
+
+.num-badge {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    background-color: var(--text-accent);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #1a1c23;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-wrapper img.v {
+    object-fit: contain;
+    padding: 15px;
+}
+
+/* --- Bouton Like --- */
+.btn-like {
+    background-color: var(--text-accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.btn-like:hover {
+    transform: scale(1.05);
 }
